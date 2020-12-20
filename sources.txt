@@ -1,1 +1,4 @@
 C:\Users\haruj\Documents\GitHub\JCodePane\src\harujisaku\gui\JCodePane.java
+C:\Users\haruj\Documents\GitHub\JCodePane\src\harujisaku\gui\autocomplete\AutoCompleteEngin.java
+C:\Users\haruj\Documents\GitHub\JCodePane\src\harujisaku\gui\autocomplete\DefaultAutoComplete.java
+C:\Users\haruj\Documents\GitHub\JCodePane\src\harujisaku\gui\highlight\HighlightStyle.java

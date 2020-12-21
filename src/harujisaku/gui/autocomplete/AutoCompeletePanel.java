@@ -4,7 +4,7 @@ import javax.swing.JList;
 import javax.swing.ListSelectionModel;
 import javax.swing.DefaultListModel;
 
-public abstract class AutoCompletePanel extends JPopupMenu implements MouseAdapter{
+public abstract class AutoCompletePanel extends JPopupMenu implements MouseListener{
 	DefaultListModel model = new DefaultListModel();
 	JList list = new JList(model);
 	public AutoCompletePanel(){
@@ -22,4 +22,15 @@ public abstract class AutoCompletePanel extends JPopupMenu implements MouseAdapt
 	public JList getList(){
 		return list;
 	}
+	
+	@Override
+	public void mouseClicked(MouseEvent e){}
+	@Override
+	public void mouseEntered(MouseEvent e){}
+	@Override
+	public void mouseExited(MouseEvent e){}
+	@Override
+	public void mousePressed(MouseEvent e){}
+	@Override
+	public void mouseReleassed(MouseEvent e){}
 }

@@ -7,6 +7,9 @@ import harujisaku.gui.highlight.*;
 import harujisaku.gui.autocomplete.*;
 
 public class JCodePane extends JTextPane{
+	
+	HighlightStyle style;
+	AutoComplete autoComplete;
 	public JCodePane(){
 		super();
 		
@@ -17,10 +20,17 @@ public class JCodePane extends JTextPane{
 	}
 	
 	public void setHighlight(HighlightStyle style){
-		
+		this.style=style;
 	}
 	
-	public void setAutoComplete(AutoCompleteEngin autoComplete){
-		
+	public void setAutoComplete(AutoComplete autoComplete){
+		this.autoComplete=autoComplete;
+	}
+	
+	public void highlight(){
+		HighlightSet[] highlightSets = style.getHighLightSet();
+		for (HighlightSet highlightSet :highlightSets ) {
+			setCharacterAttributes(highlightSet.start,highlightSet.end-highlightSet.start,highlightSet.aset,true);
+		}
 	}
 }

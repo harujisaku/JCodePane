@@ -1,7 +1,8 @@
 package harujisaku.gui.highlight;
 
-public class HighlightStyle{
-	public HighlightStyle(){
-		
+public abstract class HighlightStyle{
+	public static HighlightSet[] getHighLightSet(){
+		HighlightSet[] highlightSet = new HighlightSet();
+		return highlightSet;
 	}
 }

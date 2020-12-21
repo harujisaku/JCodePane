@@ -1,1 +1,1 @@
-java -cp bin\ harujisaku.minicode.MiniCode
+jar cvf JCodePane.jar -C bin/ .

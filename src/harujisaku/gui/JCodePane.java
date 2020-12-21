@@ -25,6 +25,7 @@ public class JCodePane extends JTextPane{
 	
 	public void setAutoComplete(AutoComplete autoComplete){
 		this.autoComplete=autoComplete;
+		addKeyListener(autoComplete);
 	}
 	
 	public void highlight(){

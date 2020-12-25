@@ -1,7 +1,10 @@
-package harujiskau.text;
+package harujisaku.text;
+
+import java.util.List;
+import java.util.ArrayList;
 
 public class SuggestString{
-	List list;
+	List<String> list;
 	public SuggestString(List<String> list){
 		this.list=list;
 	}
@@ -16,7 +19,7 @@ public class SuggestString{
 		return words.toArray(new String[words.size()]);
 	}
 	
-	public String searchOf(StringSearchEngin searchEngin,String text){
+	public String[] searchOf(StringSearchEngin searchEngin,String text){
 		List<String> words = new ArrayList<String>();
 		for (String word :list.toArray(new String[list.size()]) ) {
 			if (searchEngin.search(word,text)) {
@@ -24,5 +27,9 @@ public class SuggestString{
 			}
 		}
 		return words.toArray(new String[words.size()]);
+	}
+	
+	public List<String> getList(){
+		return list;
 	}
 }

@@ -1,4 +1,4 @@
-package harujisaku.minicode.gui;
+package harujisaku.gui;
 
 import javax.swing.text.StyledDocument;
 import javax.swing.JTextPane;
@@ -12,7 +12,6 @@ public class JCodePane extends JTextPane{
 	AutoComplete autoComplete;
 	public JCodePane(){
 		super();
-		
 	}
 	
 	public JCodePane(StyledDocument doc){
@@ -31,7 +30,7 @@ public class JCodePane extends JTextPane{
 	public void highlight(){
 		HighlightSet[] highlightSets = style.getHighLightSet();
 		for (HighlightSet highlightSet :highlightSets ) {
-			setCharacterAttributes(highlightSet.start,highlightSet.end-highlightSet.start,highlightSet.aset,true);
+			getStyledDocument().setCharacterAttributes(highlightSet.start,highlightSet.end-highlightSet.start,highlightSet.aset,true);
 		}
 	}
 }

@@ -1,8 +1,13 @@
 package harujisaku.gui.autocomplete;
 
+import harujisaku.text.*;
+
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
+
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
 
 public abstract class AutoCompleteEngin implements KeyListener{
 	StringBuffer word = new StringBuffer();
@@ -39,12 +44,13 @@ public abstract class AutoCompleteEngin implements KeyListener{
 		if (word.length()>=2) {
 			return true;
 		}
+		return false;
 	}
 	
 	public String[] getSuggest(){
 		String[] words=suggestString.searchOf(word.toString());
 		if (words.length<1) {
-			return {""};
+			return null;
 		}
 		return words;
 	}

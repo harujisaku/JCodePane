@@ -12,18 +12,18 @@ public class AutoComplete implements KeyListener{
 	}
 	
 	@Override
-	public keyTyped(KeyEvent e){
+	public void keyTyped(KeyEvent e){
 		autoCompleteEngin.keyTyped(e);
 	}
 	
 	@Override
-	public keyPressed(KeyEvent e){
+	public void keyPressed(KeyEvent e){
 		autoCompleteEngin.keyPressed(e);
 		
 	}
 	
 	@Override
-	public keyReleased(KeyEvent e){
+	public void keyReleased(KeyEvent e){
 		autoCompleteEngin.keyReleased(e);
 		
 	}

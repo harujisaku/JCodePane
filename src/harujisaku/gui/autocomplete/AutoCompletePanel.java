@@ -1,6 +1,10 @@
 package harujisaku.gui.autocomplete;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 import javax.swing.JList;
+import javax.swing.JPopupMenu;
 import javax.swing.ListSelectionModel;
 import javax.swing.DefaultListModel;
 
@@ -32,5 +36,5 @@ public abstract class AutoCompletePanel extends JPopupMenu implements MouseListe
 	@Override
 	public void mousePressed(MouseEvent e){}
 	@Override
-	public void mouseReleassed(MouseEvent e){}
+	public void mouseReleased(MouseEvent e){}
 }

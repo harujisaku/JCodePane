@@ -1,10 +1,10 @@
-package harujiskau.gui.highlight;
+package harujisaku.gui.highlight;
 
 import java.awt.Color;
 
 import javax.swing.text.AttributeSet;
-import javax.swing.text.StyleContext
-import javax.swing.text.StyleConstants
+import javax.swing.text.StyleContext;
+import javax.swing.text.StyleConstants;
 import javax.swing.text.SimpleAttributeSet;
 
 

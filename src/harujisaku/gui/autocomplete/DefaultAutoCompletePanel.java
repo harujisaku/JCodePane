@@ -1,7 +1,7 @@
 package harujisaku.gui.autocomplete;
 
 public class DefaultAutoCompletePanel extends AutoCompletePanel {
-	DefaultAutoCompletePanel(){
+	public DefaultAutoCompletePanel(){
 		super();
 	}
 }

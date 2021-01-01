@@ -37,7 +37,7 @@ public abstract class AutoCompleteEngin implements KeyListener{
 	
 	@Override
 	public void keyReleased(KeyEvent e){
-		
+		System.out.println(word.toString());
 	}
 	
 	public boolean canSuggest(){

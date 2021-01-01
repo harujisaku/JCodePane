@@ -7,20 +7,34 @@ import javax.swing.JList;
 import javax.swing.JPopupMenu;
 import javax.swing.ListSelectionModel;
 import javax.swing.DefaultListModel;
+import javax.swing.JTextComponent;
 
 public abstract class AutoCompletePanel extends JPopupMenu implements MouseListener{
 	DefaultListModel model = new DefaultListModel();
 	JList list = new JList(model);
-	public AutoCompletePanel(){
+	JTextComponent textpane;
+	public AutoCompletePanel(JTextComponent textpane){
 		super();
+		this.textpane=textpane;
 		setOpaque(false);
-		
+		init();
+	}
+	
+	public void show(Point p){
+		final int position = textpane.getCaretPosition();
+		setVisible(true);
+		setOpaque(true);
+		add(list);
+		show(textpane,p.x,textpane.getBaseline(0,0)+p.y+15);
+		list.setSelectedIndex(0);
+		textpane.setCaretPosition(position);
 	}
 	
 	private void init(){
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		list.setFocusable(false);
 		list.addMouseListener(this);
+		setVisible(false);
 	}
 	
 	public JList getList(){

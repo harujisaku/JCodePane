@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"harujisaku.gui","h":"","u":""},{"l":"harujisaku.gui.autocomplete","h":"","u":""},{"l":"harujisaku.gui.highlight","h":"","u":""},{"l":"harujisaku.text","h":"","u":""},{"l":"すべてのパッケージ","h":"","u":"allpackages-index.html"}]

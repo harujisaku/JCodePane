@@ -19,12 +19,14 @@ public class AutoComplete implements KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e){
 		autoCompleteEngin.keyPressed(e);
-		
 	}
 	
 	@Override
 	public void keyReleased(KeyEvent e){
 		autoCompleteEngin.keyReleased(e);
-		
+		System.out.println(autoCompleteEngin.canSuggest());
+		for (String a :autoCompleteEngin.getSuggest() ) {
+			System.out.println(a);
+		};
 	}
 }

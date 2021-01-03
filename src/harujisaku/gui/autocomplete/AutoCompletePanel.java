@@ -1,5 +1,7 @@
 package harujisaku.gui.autocomplete;
 
+import java.awt.Point;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -7,7 +9,7 @@ import javax.swing.JList;
 import javax.swing.JPopupMenu;
 import javax.swing.ListSelectionModel;
 import javax.swing.DefaultListModel;
-import javax.swing.JTextComponent;
+import javax.swing.text.JTextComponent;
 
 public abstract class AutoCompletePanel extends JPopupMenu implements MouseListener{
 	DefaultListModel model = new DefaultListModel();

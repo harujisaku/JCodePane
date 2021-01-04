@@ -12,13 +12,14 @@ import java.awt.event.KeyEvent;
 public abstract class AutoCompleteEngin implements KeyListener{
 	StringBuffer word = new StringBuffer();
 	SuggestString suggestString=null;
+	List<String> wordList;
 	public AutoCompleteEngin(){
 		
 	}
 	
 	public AutoCompleteEngin(SuggestString suggestString){
 		this.suggestString=suggestString;
-		List<String> wordList = suggestString.getList();
+		wordList = suggestString.getList();
 	}
 	
 	@Override

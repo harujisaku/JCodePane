@@ -25,6 +25,9 @@ public class AutoComplete implements KeyListener{
 	public void keyReleased(KeyEvent e){
 		autoCompleteEngin.keyReleased(e);
 		System.out.println(autoCompleteEngin.canSuggest());
+		if (autoCompleteEngin.getSuggest()==null) {
+			return;
+		}
 		for (String a :autoCompleteEngin.getSuggest() ) {
 			System.out.println(a);
 		};

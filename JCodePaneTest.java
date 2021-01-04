@@ -1,13 +1,16 @@
 import harujisaku.gui.JCodePane;
 import harujisaku.gui.highlight.*;
 import harujisaku.gui.autocomplete.*;
+import harujisaku.text.*;
+
+import java.util.*;
 
 import javax.swing.JFrame;
 
 public class JCodePaneTest extends JFrame {
 	JCodePane jcodePane = new JCodePane();
 	AutoComplete autoComplete;
-	List<String> list = new List<String>();
+	List<String> list = new ArrayList<String>();
 	// static HighlightStyle h = new HighlightStyle();
 	public JCodePaneTest(){
 		

@@ -1,7 +1,13 @@
 package harujisaku.text;
-
+/**
+ * テキスト操作に関するクラスです。
+ */
 public class Util {
 	private String text;
+	/**
+	 * デフォルトコンストラクタ.
+	 * @param text 操作するテキスト
+	 */
 	public Util(String text){
 		this.text=text;
 	}

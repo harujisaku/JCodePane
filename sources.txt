@@ -8,3 +8,4 @@ C:\Users\haruj\Documents\GitHub\MiniCode\lib\JCodePane\src\harujisaku\gui\highli
 C:\Users\haruj\Documents\GitHub\MiniCode\lib\JCodePane\src\harujisaku\gui\highlight\HighlightStyle.java
 C:\Users\haruj\Documents\GitHub\MiniCode\lib\JCodePane\src\harujisaku\text\StringSearchEngin.java
 C:\Users\haruj\Documents\GitHub\MiniCode\lib\JCodePane\src\harujisaku\text\SuggestString.java
+C:\Users\haruj\Documents\GitHub\MiniCode\lib\JCodePane\src\harujisaku\text\Util.java

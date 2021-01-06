@@ -11,6 +11,7 @@ import javax.swing.JList;
 import javax.swing.JPopupMenu;
 import javax.swing.ListSelectionModel;
 import javax.swing.DefaultListModel;
+import javax.swing.SwingUtilities;
 import javax.swing.text.JTextComponent;
 import javax.swing.text.BadLocationException;
 /**
@@ -18,6 +19,8 @@ import javax.swing.text.BadLocationException;
  */
 public abstract class AutoCompletePanel extends JPopupMenu implements MouseListener{
 	JTextComponent textpane;
+	DefaultListModel model = new DefaultListModel();
+	JList jlist= new JList(model);
 	/**
 	 * デフォルトコンストラクタ
 	 * @param textpane 自動補完をする対象
@@ -32,7 +35,7 @@ public abstract class AutoCompletePanel extends JPopupMenu implements MouseListe
 	 * 表示する
 	 * @param list 表示する保管文字列の配列
 	 */
-	public void show(List<String> list){
+	public void show(String[] list){
 		final int position = textpane.getCaretPosition();
 		Point p = new Point(0,0);
 		try {
@@ -40,16 +43,31 @@ public abstract class AutoCompletePanel extends JPopupMenu implements MouseListe
 		} catch(BadLocationException e) {
 			e.printStackTrace();
 		}
-		
 		setVisible(true);
 		setOpaque(true);
-		JList jlist = new JList(list.toArray(new String[list.size()]));
+		System.out.println(Arrays.toString(list));
+		model.clear();
+		for (final String str :list ) {
+			model.addElement(str);
+		}
 		add(jlist);
 		show(textpane,p.x,textpane.getBaseline(0,0)+p.y+15);
 		jlist.setSelectedIndex(0);
 		jlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		jlist.setFocusable(false);
 		textpane.setCaretPosition(position);
+		SwingUtilities.invokeLater(new Runnable(){
+			@Override
+			public void run(){
+				textpane.requestFocusInWindow();
+			}
+		});
+	}
+	
+	@Override
+	public void hide(){
+		model.clear();
+		setVisible(false);
 	}
 	
 	private void init(){

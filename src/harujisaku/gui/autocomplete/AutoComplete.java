@@ -30,6 +30,9 @@ public class AutoComplete implements KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e){
 		autoCompleteEngin.keyPressed(e);
+		if (e.getKeyChar()=='\n'&&autoCompleteEngin.canSuggest()) {
+			e.consume();
+		}
 	}
 	
 	@Override
@@ -37,10 +40,19 @@ public class AutoComplete implements KeyListener{
 		autoCompleteEngin.keyReleased(e);
 		System.out.println(autoCompleteEngin.canSuggest());
 		if (autoCompleteEngin.getSuggest()==null) {
+			autoCompletePanel.hide();
 			return;
 		}
 		if (autoCompleteEngin.canSuggest()) {
-			autoCompletePanel.show(Arrays.asList(autoCompleteEngin.getSuggest()));
+			if (e.getKeyChar()=='\n') {
+				autoCompleteEngin.suggest(0);
+				autoCompletePanel.hide();
+				e.consume();
+				return;
+			}
+			autoCompletePanel.show(autoCompleteEngin.getSuggest());
+		}else{
+			autoCompletePanel.hide();
 		}
 		for (String a :autoCompleteEngin.getSuggest() ) {
 			System.out.println(a);

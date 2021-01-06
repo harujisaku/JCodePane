@@ -23,7 +23,7 @@ public class JCodePaneTest extends JFrame {
 	public void myMain(){
 		JFrame frame = new JFrame("test");
 		list.add("public");
-		DefaultAutoComplete defaultAutoComplete = new DefaultAutoComplete(new SuggestString(list));
+		DefaultAutoComplete defaultAutoComplete = new DefaultAutoComplete(new SuggestString(list),jcodePane);
 		DefaultAutoCompletePanel autoCompletePane = new DefaultAutoCompletePanel(jcodePane);
 		autoComplete = new AutoComplete(defaultAutoComplete,autoCompletePane);
 		frame.setBounds(100, 100, 200, 160);

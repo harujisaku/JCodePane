@@ -6,6 +6,9 @@ import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.text.JTextComponent;
+import javax.swing.text.BadLocationException;
+
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 
@@ -17,6 +20,7 @@ public abstract class AutoCompleteEngin implements KeyListener{
 	StringBuffer word = new StringBuffer();
 	SuggestString suggestString=null;
 	List<String> wordList;
+	JTextComponent textpane;
 	/**
 	 * デフォルトコンストラクタ
 	 */
@@ -28,8 +32,9 @@ public abstract class AutoCompleteEngin implements KeyListener{
 	 * 自動補完文字列を定義するクラスを設定できるコンストラクタ
 	 * @param suggestString 自動補完文字列を定義するコンストラクタ
 	 */
-	public AutoCompleteEngin(SuggestString suggestString){
+	public AutoCompleteEngin(SuggestString suggestString,JTextComponent textpane){
 		this.suggestString=suggestString;
+		this.textpane=textpane;
 		wordList = suggestString.getList();
 	}
 	
@@ -41,10 +46,15 @@ public abstract class AutoCompleteEngin implements KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e){
 		if (Character.isLetterOrDigit(e.getKeyChar())) {
+			if (word.length()==0) {
+				word.append(Util.getWord(textpane.getText(),textpane.getCaretPosition()-1));
+			}
 			word.append(e.getKeyChar());
 			return;
 		}
-		word.delete(0,word.length());
+		if (e.getKeyChar()!='\n'&&canSuggest()) {
+			word.delete(0,word.length());
+		}
 	}
 	
 	@Override
@@ -71,5 +81,17 @@ public abstract class AutoCompleteEngin implements KeyListener{
 			return null;
 		}
 		return words;
+	}
+	
+	public boolean suggest(int index){
+		int position = textpane.getCaretPosition();
+		String suggestString = getSuggest()[index];
+		try {
+			textpane.getDocument().insertString(position,suggestString.substring(Math.min(word.length(),suggestString.length())),null);
+			word.delete(0,word.length());
+		} catch(BadLocationException e) {
+			e.printStackTrace();
+		}
+		return true;
 	}
 }

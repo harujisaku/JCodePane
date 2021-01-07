@@ -1,6 +1,7 @@
 package harujisaku.gui;
 
 import javax.swing.text.StyledDocument;
+import javax.swing.text.DefaultEditorKit;
 import javax.swing.JTextPane;
 
 import harujisaku.gui.highlight.*;
@@ -15,6 +16,7 @@ public class JCodePane extends JTextPane{
 	 */
 	public JCodePane(){
 		super();
+		init();
 	}
 	/**
 	 * StyledDocumentを指定したJCodePaneを作ります。
@@ -22,6 +24,7 @@ public class JCodePane extends JTextPane{
 	 */
 	public JCodePane(StyledDocument doc){
 		super(doc);
+		init();
 	}
 	/**
 	 * シンタックスハイライトを設定します。
@@ -46,5 +49,9 @@ public class JCodePane extends JTextPane{
 		for (HighlightSet highlightSet :highlightSets ) {
 			getStyledDocument().setCharacterAttributes(highlightSet.start,highlightSet.end-highlightSet.start,highlightSet.aset,true);
 		}
+	}
+	
+ 	private void init(){
+		getDocument().putProperty(DefaultEditorKit.EndOfLineStringProperty,"\n");
 	}
 }

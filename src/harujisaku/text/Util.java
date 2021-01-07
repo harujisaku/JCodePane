@@ -42,8 +42,12 @@ public class Util {
 	 * @return       単語の始点のindex
 	 */
 	public static int indexOfWordFirst(String text,int index){
+		System.out.println(index);
 		if (index<=0) {
 			return 0;
+		}else if(Character.isLetterOrDigit(text.charAt(index))){
+			System.out.println("this is no letter or digit");
+			return index;
 		}
 		int i=index;
 		while(Character.isLetterOrDigit(text.charAt(i))){
@@ -60,11 +64,20 @@ public class Util {
 	}
 	
 	public static int indexOfWordEnd(String text, int index){
+		System.out.println(index);
+		if (index<=0) {
+			return 0;
+		}else if (index>=text.length()) {
+			return text.length();
+		}else if(Character.isLetterOrDigit(text.charAt(index))){
+			System.out.println("this is no letter or digit");
+			return index;
+		}
 		int i=index;
 		while(Character.isLetterOrDigit(text.charAt(i))) {
 			i++;
 			if (i>=text.length()) {
-				return text.length()-1;
+				return text.length();
 			}
 		}
 		return i;
@@ -74,8 +87,23 @@ public class Util {
 		return getWord(text,position);
 	}
 	
-	public static String getWord(String text,int position){
-		int i=position;
-		return text.substring(indexOfWordFirst(text,position),indexOfWordEnd(text,position)+1);
+	public static String getWord(String text,int index){
+		// int i=position;
+		// return text.substring(indexOfWordFirst(text,position),indexOfWordEnd(text,position));
+		if (index<0) {
+			return "";
+		}
+		char word;
+		StringBuffer br = new StringBuffer();
+		while (!Character.isWhitespace(word=text.charAt(index))) {
+			index--;
+			br.append(word);
+			if (index<0) {
+				br.reverse();
+				return br.toString();
+			}
+		}
+		br.reverse();
+		return br.toString();
 	}
 }

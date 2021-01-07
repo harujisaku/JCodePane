@@ -2,6 +2,8 @@ package harujisaku.gui.autocomplete;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import java.util.*;
 
@@ -9,7 +11,7 @@ import java.util.*;
 /**
  * 自動補完をするクラス
  */
-public class AutoComplete implements KeyListener{
+public class AutoComplete implements KeyListener,MouseListener{
 	AutoCompleteEngin autoCompleteEngin;
 	AutoCompletePanel autoCompletePanel;
 	/**
@@ -20,6 +22,7 @@ public class AutoComplete implements KeyListener{
 	public AutoComplete(AutoCompleteEngin autoCompleteEngin,AutoCompletePanel autoCompletePanel){
 		this.autoCompleteEngin=autoCompleteEngin;
 		this.autoCompletePanel=autoCompletePanel;
+		autoCompletePanel.getJList().addMouseListener(this);
 	}
 	
 	@Override
@@ -58,4 +61,21 @@ public class AutoComplete implements KeyListener{
 			System.out.println(a);
 		};
 	}
+
+	
+	@Override
+	public void mouseClicked(MouseEvent e){
+		if (e.getClickCount()==2) {
+			autoCompleteEngin.suggest(autoCompletePanel.getSelectedIndex());
+			autoCompletePanel.hide();
+		}
+	}
+	@Override
+	public void mouseEntered(MouseEvent e){}
+	@Override
+	public void mouseExited(MouseEvent e){}
+	@Override
+	public void mousePressed(MouseEvent e){}
+	@Override
+	public void mouseReleased(MouseEvent e){}
 }

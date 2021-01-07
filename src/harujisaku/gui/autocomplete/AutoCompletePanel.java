@@ -17,7 +17,7 @@ import javax.swing.text.BadLocationException;
 /**
  * 自動補完をするためのポップアップメニューです.
  */
-public abstract class AutoCompletePanel extends JPopupMenu implements MouseListener{
+public abstract class AutoCompletePanel extends JPopupMenu{
 	JTextComponent textpane;
 	DefaultListModel model = new DefaultListModel();
 	JList jlist= new JList(model);
@@ -74,14 +74,11 @@ public abstract class AutoCompletePanel extends JPopupMenu implements MouseListe
 		setVisible(false);
 	}
 	
-	@Override
-	public void mouseClicked(MouseEvent e){}
-	@Override
-	public void mouseEntered(MouseEvent e){}
-	@Override
-	public void mouseExited(MouseEvent e){}
-	@Override
-	public void mousePressed(MouseEvent e){}
-	@Override
-	public void mouseReleased(MouseEvent e){}
+	public int getSelectedIndex(){
+		return jlist.getSelectedIndex();
+	}
+	
+	public JList getJList(){
+		return jlist;
+	}
 }

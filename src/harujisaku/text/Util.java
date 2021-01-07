@@ -42,11 +42,9 @@ public class Util {
 	 * @return       単語の始点のindex
 	 */
 	public static int indexOfWordFirst(String text,int index){
-		System.out.println(index);
 		if (index<=0) {
 			return 0;
 		}else if(Character.isLetterOrDigit(text.charAt(index))){
-			System.out.println("this is no letter or digit");
 			return index;
 		}
 		int i=index;
@@ -64,13 +62,11 @@ public class Util {
 	}
 	
 	public static int indexOfWordEnd(String text, int index){
-		System.out.println(index);
 		if (index<=0) {
 			return 0;
 		}else if (index>=text.length()) {
 			return text.length();
 		}else if(Character.isLetterOrDigit(text.charAt(index))){
-			System.out.println("this is no letter or digit");
 			return index;
 		}
 		int i=index;
@@ -88,8 +84,6 @@ public class Util {
 	}
 	
 	public static String getWord(String text,int index){
-		// int i=position;
-		// return text.substring(indexOfWordFirst(text,position),indexOfWordEnd(text,position));
 		if (index<0) {
 			return "";
 		}

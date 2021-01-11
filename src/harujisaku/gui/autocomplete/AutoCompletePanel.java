@@ -46,13 +46,18 @@ public abstract class AutoCompletePanel extends JPopupMenu{
 		setVisible(true);
 		setOpaque(true);
 		System.out.println(Arrays.toString(list));
+		int selectedIndex = jlist.getSelectedIndex();
 		model.clear();
 		for (final String str :list ) {
 			model.addElement(str);
 		}
 		add(jlist);
 		show(textpane,p.x,textpane.getBaseline(0,0)+p.y+15);
-		jlist.setSelectedIndex(0);
+		if (selectedIndex==-1) {
+			jlist.setSelectedIndex(0);
+		}else{
+			jlist.setSelectedIndex(selectedIndex);
+		}
 		jlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		jlist.setFocusable(false);
 		textpane.setCaretPosition(position);
@@ -63,22 +68,34 @@ public abstract class AutoCompletePanel extends JPopupMenu{
 			}
 		});
 	}
-	
+
 	@Override
 	public void hide(){
 		model.clear();
 		setVisible(false);
 	}
-	
+
 	private void init(){
 		setVisible(false);
 	}
-	
+
 	public int getSelectedIndex(){
 		return jlist.getSelectedIndex();
 	}
-	
+
 	public JList getJList(){
 		return jlist;
+	}
+
+	public void setSelectedIndex(int index){
+		jlist.setSelectedIndex(index);
+	}
+
+	public void setSelectedLower(){
+		jlist.setSelectedIndex(Math.min(jlist.getModel().getSize()-1,jlist.getSelectedIndex()+1));
+	}
+
+	public void setSelectedUpper(){
+		jlist.setSelectedIndex(Math.max(jlist.getSelectedIndex()-1,0));
 	}
 }

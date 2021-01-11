@@ -24,20 +24,29 @@ public class AutoComplete implements KeyListener,MouseListener{
 		this.autoCompletePanel=autoCompletePanel;
 		autoCompletePanel.getJList().addMouseListener(this);
 	}
-	
+
 	@Override
 	public void keyTyped(KeyEvent e){
 		autoCompleteEngin.keyTyped(e);
 	}
-	
+
 	@Override
 	public void keyPressed(KeyEvent e){
+		if(autoCompleteEngin.canSuggest()&&e.getKeyCode()==KeyEvent.VK_UP){
+			autoCompletePanel.setSelectedUpper();
+			e.consume();
+			return;
+		}else if(autoCompleteEngin.canSuggest()&&e.getKeyCode()==KeyEvent.VK_DOWN){
+			autoCompletePanel.setSelectedLower();
+			e.consume();
+			return;
+		}
 		autoCompleteEngin.keyPressed(e);
 		if (e.getKeyChar()=='\n'&&autoCompleteEngin.canSuggest()) {
 			e.consume();
 		}
 	}
-	
+
 	@Override
 	public void keyReleased(KeyEvent e){
 		autoCompleteEngin.keyReleased(e);
@@ -48,7 +57,7 @@ public class AutoComplete implements KeyListener,MouseListener{
 		}
 		if (autoCompleteEngin.canSuggest()) {
 			if (e.getKeyChar()=='\n') {
-				autoCompleteEngin.suggest(0);
+				autoCompleteEngin.suggest(autoCompletePanel.getSelectedIndex());
 				autoCompletePanel.hide();
 				e.consume();
 				return;
@@ -62,7 +71,7 @@ public class AutoComplete implements KeyListener,MouseListener{
 		};
 	}
 
-	
+
 	@Override
 	public void mouseClicked(MouseEvent e){
 		if (e.getClickCount()==2) {

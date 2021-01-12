@@ -4,6 +4,7 @@ C:\Users\haruj\Documents\GitHub\MiniCode\lib\JCodePane\src\harujisaku\gui\autoco
 C:\Users\haruj\Documents\GitHub\MiniCode\lib\JCodePane\src\harujisaku\gui\autocomplete\AutoCompletePanel.java
 C:\Users\haruj\Documents\GitHub\MiniCode\lib\JCodePane\src\harujisaku\gui\autocomplete\DefaultAutoComplete.java
 C:\Users\haruj\Documents\GitHub\MiniCode\lib\JCodePane\src\harujisaku\gui\autocomplete\DefaultAutoCompletePanel.java
+C:\Users\haruj\Documents\GitHub\MiniCode\lib\JCodePane\src\harujisaku\gui\highlight\DefaultHighlightStyle.java
 C:\Users\haruj\Documents\GitHub\MiniCode\lib\JCodePane\src\harujisaku\gui\highlight\HighlightSet.java
 C:\Users\haruj\Documents\GitHub\MiniCode\lib\JCodePane\src\harujisaku\gui\highlight\HighlightStyle.java
 C:\Users\haruj\Documents\GitHub\MiniCode\lib\JCodePane\src\harujisaku\text\StringSearchEngin.java

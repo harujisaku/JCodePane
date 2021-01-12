@@ -56,11 +56,11 @@ public class Util {
 		}
 		return i+1;
 	}
-	
+
 	public int indexOfWordEnd(int index){
 		return indexOfWordEnd(text,index);
 	}
-	
+
 	public static int indexOfWordEnd(String text, int index){
 		if (index<=0) {
 			return 0;
@@ -78,11 +78,11 @@ public class Util {
 		}
 		return i;
 	}
-	
+
 	public String getWord(int position){
 		return getWord(text,position);
 	}
-	
+
 	public static String getWord(String text,int index){
 		if (index<0) {
 			return "";
@@ -99,5 +99,68 @@ public class Util {
 		}
 		br.reverse();
 		return br.toString();
+	}
+
+	/**
+	 * 渡されたindexが属する行の行頭のindexを返します
+	 * @param  text     検索する文字列
+	 * @param  position 検索を開始するindex
+	 * @return          行頭のindex
+	 */
+
+	public static int indexOfFirstOfLine(String text,int position){
+		if (position<=0||(text==null&&text.isEmpty())) {
+			System.out.println("return");
+			return 0;
+		}
+		while((text.charAt(position))!='\n'){
+			position--;
+			if (position<=0) {
+				return 0;
+			}
+		}
+		return position;
+	}
+
+	/**
+	 * 渡されたindexが属する行の行末のindexを返します
+	 * @param  text     検索する文字列
+	 * @param  position 検索を開始するindex
+	 * @return          行末のindex
+	 */
+
+	public static int indexOfEndOfLine(String text,int position){
+		if (position<=0||(text==null&&text.isEmpty())) {
+			return 0;
+		}
+		if (position>=text.length()) {
+			return text.length();
+		}
+		int max=text.length()-1;
+		while((text.charAt(position))!='\n'){
+			position++;
+			if (position>=max) {
+				return max;
+			}
+		}
+		return position;
+	}
+
+	/**
+	 * 渡されたindexが属する行の行頭のindexを返します
+	 * @param  position 検索を開始するindex
+	 * @return  行頭のindex
+	 */
+
+	public int indexOfFirstOfLine(int position){
+		return indexOfFirstOfLine(text,position);
+	}
+	/**
+	 * 渡されたindexが属する行の行末のindexを返します
+	 * @param  position 検索を開始するindex
+	 * @return  行末のindex
+	 */
+	public int indexOfEndOfLine(int position){
+		return indexOfEndOfLine(text,position);
 	}
 }

@@ -1,5 +1,6 @@
 import harujisaku.gui.JCodePane;
 import harujisaku.gui.autocomplete.*;
+import harujisaku.gui.highlight.*;
 import harujisaku.text.*;
 
 import java.util.*;
@@ -11,13 +12,13 @@ public class JCodePaneTest extends JFrame {
 	AutoComplete autoComplete;
 	List<String> list = new ArrayList<String>();
 	public JCodePaneTest(){
-		
+
 	}
-	
+
 	public static void main(String[] args) {
 		new JCodePaneTest().myMain();
 	}
-	
+
 	public void myMain(){
 		JFrame frame = new JFrame("test");
 		list.add("public");
@@ -31,6 +32,7 @@ public class JCodePaneTest extends JFrame {
 		frame.setBounds(100, 100, 200, 160);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jcodePane.setAutoComplete(autoComplete);
+		jcodePane.setHighlight(new DefaultHighlightStyle());
 		frame.add(jcodePane);
 		frame.setVisible(true);
 	}

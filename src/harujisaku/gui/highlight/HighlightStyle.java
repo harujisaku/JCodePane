@@ -26,6 +26,12 @@ public abstract class HighlightStyle{
 	 * @param text ハイライトを設定するもととなる文字を指定します。
 	 */
 	public void setText(String text){
-		
+
+	}
+
+	public HighlightSet[] getHighLightSet(int start,int end){
+		HighlightSet[] highlightSet = new HighlightSet[1];
+		highlightSet[0] = new HighlightSet(start,end,StyleContext.getDefaultStyleContext().addAttribute(SimpleAttributeSet.EMPTY,StyleConstants.Foreground,Color.RED));
+		return highlightSet;
 	}
 }

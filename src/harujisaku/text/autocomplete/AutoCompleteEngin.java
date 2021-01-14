@@ -1,4 +1,4 @@
-package harujisaku.gui.autocomplete;
+package harujisaku.text.autocomplete;
 
 import harujisaku.text.*;
 

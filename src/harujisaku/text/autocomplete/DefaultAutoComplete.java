@@ -1,6 +1,7 @@
-package harujisaku.gui.autocomplete;
+package harujisaku.text.autocomplete;
 
 import harujisaku.gui.autocomplete.*;
+import harujisaku.text.autocomplete.*;
 import harujisaku.text.*;
 import javax.swing.text.JTextComponent;
 /**

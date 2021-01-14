@@ -18,7 +18,7 @@ public abstract class HighlightStyle{
 	 */
 	public HighlightSet[] getHighLightSet(){
 		HighlightSet[] highlightSet = new HighlightSet[1];
-		highlightSet[0] = new HighlightSet(0,10,StyleContext.getDefaultStyleContext().addAttribute(SimpleAttributeSet.EMPTY,StyleConstants.Foreground,Color.RED));
+		highlightSet[0] = new HighlightSet(0,10,StyleContext.getDefaultStyleContext().addAttribute(SimpleAttributeSet.EMPTY,StyleConstants.Foreground,Color.BLACK));
 		return highlightSet;
 	}
 	/**
@@ -31,7 +31,7 @@ public abstract class HighlightStyle{
 
 	public HighlightSet[] getHighLightSet(int start,int end){
 		HighlightSet[] highlightSet = new HighlightSet[1];
-		highlightSet[0] = new HighlightSet(start,end,StyleContext.getDefaultStyleContext().addAttribute(SimpleAttributeSet.EMPTY,StyleConstants.Foreground,Color.RED));
+		highlightSet[0] = new HighlightSet(start,end,StyleContext.getDefaultStyleContext().addAttribute(SimpleAttributeSet.EMPTY,StyleConstants.Foreground,Color.BLACK));
 		return highlightSet;
 	}
 }

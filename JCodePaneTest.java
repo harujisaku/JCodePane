@@ -2,6 +2,7 @@ import harujisaku.gui.JCodePane;
 import harujisaku.gui.autocomplete.*;
 import harujisaku.gui.highlight.*;
 import harujisaku.text.*;
+import harujisaku.text.autocomplete.*;
 
 import java.util.*;
 

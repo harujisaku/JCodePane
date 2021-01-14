@@ -7,6 +7,7 @@ import java.awt.event.MouseListener;
 
 import java.util.*;
 
+import harujisaku.text.autocomplete.*;
 
 /**
  * 自動補完をするクラス

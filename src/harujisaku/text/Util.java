@@ -110,7 +110,6 @@ public class Util {
 
 	public static int indexOfFirstOfLine(String text,int position){
 		if (position<=0||(text==null&&text.isEmpty())) {
-			System.out.println("return");
 			return 0;
 		}
 		while((text.charAt(position))!='\n'){

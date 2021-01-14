@@ -24,9 +24,9 @@ public abstract class AutoCompleteEngin implements KeyListener{
 	/**
 	 * デフォルトコンストラクタ
 	 */
-	
+
 	public AutoCompleteEngin(){
-		
+
 	}
 	/**
 	 * 自動補完文字列を定義するクラスを設定できるコンストラクタ
@@ -37,12 +37,12 @@ public abstract class AutoCompleteEngin implements KeyListener{
 		this.textpane=textpane;
 		wordList = suggestString.getList();
 	}
-	
+
 	@Override
 	public void keyTyped(KeyEvent e){
-		
+
 	}
-	
+
 	@Override
 	public void keyPressed(KeyEvent e){
 		if (Character.isLetterOrDigit(e.getKeyChar())) {
@@ -56,10 +56,9 @@ public abstract class AutoCompleteEngin implements KeyListener{
 			word.delete(0,word.length());
 		}
 	}
-	
+
 	@Override
 	public void keyReleased(KeyEvent e){
-		System.out.println(word.toString());
 	}
 	/**
 	 * 自動補完が可能かを返す
@@ -82,7 +81,7 @@ public abstract class AutoCompleteEngin implements KeyListener{
 		}
 		return words;
 	}
-	
+
 	public boolean suggest(int index){
 		int position = textpane.getCaretPosition();
 		String suggestString = getSuggest()[index];

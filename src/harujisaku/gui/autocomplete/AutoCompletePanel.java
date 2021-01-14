@@ -3,6 +3,7 @@ package harujisaku.gui.autocomplete;
 import java.util.*;
 
 import java.awt.Point;
+import java.awt.Dimension;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -45,21 +46,20 @@ public abstract class AutoCompletePanel extends JPopupMenu{
 		}
 		setVisible(true);
 		setOpaque(true);
-		System.out.println(Arrays.toString(list));
 		int selectedIndex = jlist.getSelectedIndex();
 		model.clear();
 		for (final String str :list ) {
 			model.addElement(str);
 		}
 		add(jlist);
+		jlist.setFocusable(false);
+		jlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		show(textpane,p.x,textpane.getBaseline(0,0)+p.y+15);
 		if (selectedIndex==-1) {
 			jlist.setSelectedIndex(0);
 		}else{
 			jlist.setSelectedIndex(selectedIndex);
 		}
-		jlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		jlist.setFocusable(false);
 		textpane.setCaretPosition(position);
 		SwingUtilities.invokeLater(new Runnable(){
 			@Override

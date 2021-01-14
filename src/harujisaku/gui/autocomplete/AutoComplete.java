@@ -50,7 +50,6 @@ public class AutoComplete implements KeyListener,MouseListener{
 	@Override
 	public void keyReleased(KeyEvent e){
 		autoCompleteEngin.keyReleased(e);
-		System.out.println(autoCompleteEngin.canSuggest());
 		if (autoCompleteEngin.getSuggest()==null) {
 			autoCompletePanel.hide();
 			return;
@@ -66,9 +65,6 @@ public class AutoComplete implements KeyListener,MouseListener{
 		}else{
 			autoCompletePanel.hide();
 		}
-		for (String a :autoCompleteEngin.getSuggest() ) {
-			System.out.println(a);
-		};
 	}
 
 
